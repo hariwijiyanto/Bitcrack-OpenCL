@@ -1,0 +1,1 @@
+./bitcrack.exe -p 131072 --keyspace 8000000000:ffffffffff 1EeAxcprB2PpCnr34VfZdFrkUWuxyiNEFv
