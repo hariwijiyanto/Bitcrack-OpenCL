@@ -121,7 +121,3 @@ Performance depends on your OpenCL device:
 2. **Build errors**: Ensure C++11 compiler is available
 3. **Runtime errors**: Check OpenCL driver installation
 4. **Poor performance**: Adjust `-b`, `-t`, and `-p` parameters for your device
-
-## License
-
-MIT License - see LICENSE.MIT file 
