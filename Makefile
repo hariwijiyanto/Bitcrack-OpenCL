@@ -2,7 +2,7 @@
 
 CXX = g++
 CXXFLAGS = -O2 -std=c++11 -Iinclude -I"C:/OCL_SDK_Light/include" -IKeyFinderLib
-LDFLAGS = -L"C:/OCL_SDK_Light/lib/x86_64" -lOpenCL -lbcrypt
+LDFLAGS = -L"C:/OCL_SDK_Light/lib/x86_64" -lOpenCL 
 
 # Directories
 SRCDIR = src
@@ -22,17 +22,17 @@ MAIN_OBJS = $(MAIN_SOURCES:$(SRCDIR)/%.cpp=$(BUILDDIR)/%.o)
 EMBEDCL_OBJS = $(BUILDDIR)/embedcl.o
 
 # Targets
-TARGETS = $(BINDIR)/bitcrack.exe $(BINDIR)/embedcl.exe
+TARGETS = $(BINDIR)/bitcrack $(BINDIR)/embedcl
 
 .PHONY: all clean
 
 all: $(TARGETS)
 
-$(BINDIR)/embedcl.exe: $(EMBEDCL_OBJS)
+$(BINDIR)/embedcl: $(EMBEDCL_OBJS)
 	@mkdir -p $(BINDIR)
 	$(CXX) $(EMBEDCL_OBJS) -o $@
 
-$(BINDIR)/bitcrack.exe: $(CORE_OBJS) $(OPENCL_OBJS) $(MAIN_OBJS)
+$(BINDIR)/bitcrack: $(CORE_OBJS) $(OPENCL_OBJS) $(MAIN_OBJS)
 	@mkdir -p $(BINDIR)
 	$(CXX) $^ $(LDFLAGS) -o $@
 
